@@ -22,22 +22,22 @@ class TestDrawStairs(unittest.TestCase):
 			self.assertEqual(draw_stairs_recursive(n), expected)
 
 	@staticmethod
-	def measure_time():
-		join_time = timeit.timeit(lambda: draw_stairs(10000), number=1000)
-		recursive_time = timeit.timeit(lambda: draw_stairs_recursive(10000), number=1000)
+	def test_measure_time():
+		join_time = timeit.timeit(lambda: draw_stairs(100), number=100)
+		recursive_time = timeit.timeit(lambda: draw_stairs_recursive(100), number=100)
 
 		print(f"[Draw Stairs] Join method: {join_time:.6f} seconds")
 		print(f"[Draw Stairs] Recursive method: {recursive_time:.6f} seconds")
 
 	@staticmethod
-	def measure_memory():
+	def test_measure_memory():
 		tracemalloc.start()
 
-		draw_stairs(10000)
+		draw_stairs(100)
 		join_memory = tracemalloc.get_traced_memory()[1]
 
 		tracemalloc.reset_peak()
-		draw_stairs_recursive(10000)
+		draw_stairs_recursive(100)
 		recursive_memory = tracemalloc.get_traced_memory()[1]
 
 		tracemalloc.stop()
@@ -48,5 +48,6 @@ class TestDrawStairs(unittest.TestCase):
 
 if __name__ == "__main__":
 	unittest.main()
-	TestDrawStairs.measure_time()
-	TestDrawStairs.measure_memory()
+	TestDrawStairs.test_measure_time()
+	TestDrawStairs.test_measure_memory()
+

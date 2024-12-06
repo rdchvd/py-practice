@@ -15,5 +15,7 @@ I
 ```
 
 ### Solution
-    The function uses 
+There are 2 ways to resolve this task:
+ 1. Using a recursive function to draw the stairs.
+ 2. Using list comprehension to draw the stairs and join the list elements with a newline character.
     
