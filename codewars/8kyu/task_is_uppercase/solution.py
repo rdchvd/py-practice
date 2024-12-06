@@ -4,4 +4,4 @@ def is_uppercase(inp):
     :param inp: string input
     :return: boolean value if the input is uppercase
     """
-    return inp.isupper()
+    return inp == inp.upper()
