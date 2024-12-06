@@ -28,7 +28,7 @@ To set up the project locally:
 2. Activate a virtual environment:  
    ```bash
    python3 -m venv .venv  
-   source .venv/bin/activate  # nn Windows: .venv\Scripts\activate
+   source .venv/bin/activate  # on Windows: .venv\Scripts\activate
    ```
 3. Install the project dependencies:  
    ```bash
