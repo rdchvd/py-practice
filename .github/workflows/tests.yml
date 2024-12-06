@@ -30,3 +30,13 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Update README with Coverage
+        run: |
+          coverage=$(grep TOTAL coverage.txt | awk '{print $4}')
+          echo "![Coverage](https://img.shields.io/badge/coverage-${coverage}-green)" >> README.md
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update coverage badge"
+          git push
+          
